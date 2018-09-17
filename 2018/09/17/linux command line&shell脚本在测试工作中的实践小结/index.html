@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+       | 进击的六六 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Fiona yang">
+    
+    
+
+    <meta name="description" content="####Linux Command Line &amp;amp; shell脚本在测试工作中的实践小结 背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" | 进击的六六">
+<meta property="og:url" content="http://yoursite.com/2018/09/17/linux command line&shell脚本在测试工作中的实践小结/index.html">
+<meta property="og:site_name" content="进击的六六">
+<meta property="og:description" content="####Linux Command Line &amp;amp; shell脚本在测试工作中的实践小结 背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的">
+<meta property="og:updated_time" content="2018-09-17T13:10:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" | 进击的六六">
+<meta name="twitter:description" content="####Linux Command Line &amp;amp; shell脚本在测试工作中的实践小结 背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="http://7xsrzn.com1.z0.glb.clouddn.com/six.jpg">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">进击的六六</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title"></h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-09-17" class="post-meta__date date">2018-09-17</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>####Linux Command Line &amp; shell脚本在测试工作中的实践小结</p>
+<p>背景：</p>
+<p>相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。<br>测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下：</p>
+<h5 id="场景一：搭建环境"><a href="#场景一：搭建环境" class="headerlink" title="场景一：搭建环境"></a>场景一：搭建环境</h5><p>根据每个公司的情况，软件测试人员需要自己在Linux系统上部署测试环境，也有公司是开发人员帮忙在Linux服务器上部署，不需要测试人员自己部署。而且现在大部分开始做自动化部署了，就更不需要软件测试人员手工部署，直接在Jenkins上自动部署就完成了，然后打开web界面，新部署的代码就生效了。</p>
+<p>不过不管是手工部署，还是通过GUI工具去完成自动化部署，本质的过程其实都是通过一系列Linux Command Line去完成的。</p>
+<p>以下就列举一些在部署环境时需要用到的命令</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">scp</td>
+<td style="text-align:left">远程机器拷贝文件,且传输加密</td>
+</tr>
+<tr>
+<td style="text-align:center">rsync</td>
+<td style="text-align:left">远程数据同步工具，实现本地&amp;远程两个主机之间的文件达到同步</td>
+</tr>
+<tr>
+<td style="text-align:center">ftp</td>
+<td style="text-align:left">通过命令行来访问文件服务器</td>
+</tr>
+<tr>
+<td style="text-align:center">yum /brew</td>
+<td style="text-align:left">软件包管理器，centos/mac.常用参数 install、update、list等</td>
+</tr>
+<tr>
+<td style="text-align:center">wget</td>
+<td style="text-align:left">用来从指定的URL下载文件，下载的二进制文件，解压后可以直接用。稳定、支持重试&amp;断点续传等</td>
+</tr>
+<tr>
+<td style="text-align:center">chmod/chown/chgrp</td>
+<td style="text-align:left">修改权限<br>chmod命令用来变更文件或目录的权限<br>chown命令改变某个文件或目录的所有者和所属的组<br>chgrp命令用来改变文件或目录所属的用户组</td>
+</tr>
+<tr>
+<td style="text-align:center">env</td>
+<td style="text-align:left">用于显示系统中已存在的环境变量，以及在定义的环境中执行指令</td>
+</tr>
+<tr>
+<td style="text-align:center">uname</td>
+<td style="text-align:left">用于打印当前系统相关信息(内核版本号、硬件架构、主机名称和操作系统类型等)“uname -a”可显示全部信息</td>
+</tr>
+<tr>
+<td style="text-align:center">其他基本命令</td>
+<td style="text-align:left">ssh / cd / rm / tar -xzvf / tar -czvf / ll / mkdir / top / vi</td>
+</tr>
+</tbody>
+</table>
+<p>基本在部署环境时，主要就会用到这些命令，可能还有其他的，根据实际情况需要做一些补充。</p>
+<h5 id="场景二：查看日志"><a href="#场景二：查看日志" class="headerlink" title="场景二：查看日志"></a>场景二：查看日志</h5><p>对于技术同学来说，查看日志相信一定不会陌生，定位bug，或者查看程序执行情况（什么时候调用哪个服务，什么时候在哪个表中写数据，什么时候发起请求等都可以在日志中查询到）。</p>
+<p>下面就列举一些在查看日志时经常用到命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">tail</td>
+<td style="text-align:left">用于查看文件的内容.’tail -f 文件名’ 可动态读取文件尾部内容</td>
+</tr>
+<tr>
+<td style="text-align:center">less/more</td>
+<td style="text-align:left">对文件或其它输出进行分页显示的工具.more命令从前向后读取文件，因此在启动时就加载整个文件。less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移动</td>
+</tr>
+<tr>
+<td style="text-align:center">tac/cat</td>
+<td style="text-align:left">tac用于将文件以行为单位的反序输出，即第一行最后显示，最后一行先显示<br>cat命令的用途是连接文件或标准输入并打印,也可创建文件或将几个文件合并为一个文件</td>
+</tr>
+<tr>
+<td style="text-align:center">split</td>
+<td style="text-align:left">命令用于将一个文件分割成数个。该指令将大文件分割成较小的文件，在默认情况下将按照每1000行切割成一个小文件。在日志文件过大的时候可能需要用到该命令</td>
+</tr>
+</tbody>
+</table>
+<h5 id="场景三：监控-amp-排查问题"><a href="#场景三：监控-amp-排查问题" class="headerlink" title="场景三：监控&amp;排查问题"></a>场景三：监控&amp;排查问题</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">top</td>
+<td style="text-align:left">用于实时显示 process 的动态</td>
+</tr>
+<tr>
+<td style="text-align:center">uptime</td>
+<td style="text-align:left">能够打印当前时间、系统运行了多久时间、当前登录的用户有多少，以及前 1、5 和 15 分钟系统的平均负载。</td>
+</tr>
+<tr>
+<td style="text-align:center">ps -ef</td>
+<td style="text-align:left">ps:将某个进程显示出来,-e 显示所有进程,-f 全格式.<br>显示结果：用户ID/进程ID/父进程ID/CPU占用率/开始时间/开始此进程的终端设备/此进程运行的总时间/命令名</td>
+</tr>
+<tr>
+<td style="text-align:center">telnet</td>
+<td style="text-align:left">查看某个ip端口是否正常开启，用法：telnet ip port。例如 telnet 10.1.1.1 80</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://man.linuxde.net/curl" target="_blank" rel="noopener">curl</a></td>
+<td style="text-align:left">查看api的返回情况,命令行版的postman。甚至更强大</td>
+</tr>
+<tr>
+<td style="text-align:center">lsof</td>
+<td style="text-align:left">用于查看你进程开打的文件，打开文件的进程，进程打开的端口(TCP、UDP)。<br>例如:常见用法”lsof -i:port”，查看该端口是否被占用</td>
+</tr>
+</tbody>
+</table>
+<h5 id="场景四：文件操作"><a href="#场景四：文件操作" class="headerlink" title="场景四：文件操作"></a>场景四：文件操作</h5><p>文在Linux中，一切（几乎一切）都是文件。所以若是需要在Linux系统中对文件做操作，需要熟练掌握如下一些命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Vim相关</td>
+<td style="text-align:left">Vim是从 vi 发展出来的一个文本编辑器。代码补全、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。<br>常用：:set nu设置显示行号;快捷删除某行dd;快速跳转至最后一行GG;”/“在文本中查找等等。若有兴趣且还不了解的可以自己研究一下，此处不再详细列举</td>
+</tr>
+<tr>
+<td style="text-align:center">基础命令</td>
+<td style="text-align:left">cd / source/ cp / mv / tree / ls / ll / rm /修改权限/搜索等命令</td>
+</tr>
+</tbody>
+</table>
+<h5 id="场景五：文本分析"><a href="#场景五：文本分析" class="headerlink" title="场景五：文本分析"></a>场景五：文本分析</h5><p>linux还可以进行很强大的文本分析操作，通常可能见到的场景是：会对日志文件等其他做一些查找、提取、排序、替换等工作,就需要了解以下的一些命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">grep</td>
+<td style="text-align:left">用于查找文件里符合条件的字符串，是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的内容打印出来</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.runoob.com/linux/linux-comm-awk.html" target="_blank" rel="noopener">awk</a></td>
+<td style="text-align:left">是一种用于处理文本的编程语言工具,强大的文本分析工具</td>
+</tr>
+<tr>
+<td style="text-align:center">wc</td>
+<td style="text-align:left">word count,可以计算文件的Byte数、字数、或是列数</td>
+</tr>
+<tr>
+<td style="text-align:center">sort</td>
+<td style="text-align:left">将文件进行排序，并将排序结果标准输出</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.runoob.com/linux/linux-comm-sed.html" target="_blank" rel="noopener">sed</a></td>
+<td style="text-align:left">主要用来自动编辑一个或多个文件，可以将数据行进行替换、删除、新增、选取等特定工作，简化对文件的反复操作。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">git全系列</td>
+<td style="text-align:left">源码版本管理必备<br>git clone &lt;版本库的网址&gt;:从远程主机克隆一个版本库<br>git remote:用于管理主机名。<br>git fetch:将某个远程主机的更新，全部取回本地。<br>(git branch:查看分支。-r查看远程分支,-a查看所有分支<br>git checkout:切换分支。-b切换新分支。<br>git merge:合并分支)<br>git pull:取回远程主机某个分支的更新，再与本地的指定分支合并.” git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt; “<br>git push:用于将本地分支的更新，推送到远程主机.”git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;”<br><strong>注意，分支推送顺序的写法是&lt;来源地&gt;:&lt;目的地&gt;，所以git pull是&lt;远程分支&gt;:&lt;本地分支&gt;，而git push是&lt;本地分支&gt;:&lt;远程分支&gt;。</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">maven全系列</td>
+<td style="text-align:left">java软件项目管理工具。<br>mvn clean:清理，删除target目录下编译内容<br>mvn compile:编译项目<br>mvn package:打包发布<br>mvn package -Dmaven.test.skip=ture:打包时跳过测试</td>
+</tr>
+<tr>
+<td style="text-align:center">cd</td>
+<td style="text-align:left">切换目录，这个命令是肯定会用到的。<br>需要部署到哪个目录直接用cd+路径就切换到该目录下了.cd /:进入系统根目录. cd -: 切换回上次的目录</td>
+</tr>
+<tr>
+<td style="text-align:center">cp</td>
+<td style="text-align:left">用于复制文件或目录</td>
+</tr>
+<tr>
+<td style="text-align:center">mv</td>
+<td style="text-align:left">用来为文件或目录改名、或将文件或目录移入其它位置。</td>
+</tr>
+<tr>
+<td style="text-align:center">rm</td>
+<td style="text-align:left">删除命令，可以删除目录和文件。<br>固定用法:rm rf 目录名或文件名（可以跟多个）</td>
+</tr>
+<tr>
+<td style="text-align:center">tar</td>
+<td style="text-align:left">打包和解包命令，打包可以是文件也可以是目录 <br>解包:tar -xzvf 解包解压的文件名<br>打包:tar -czvf新文件名.tar.gz文件1 文件2….目录1 目录2</td>
+</tr>
+<tr>
+<td style="text-align:center">ll/ls</td>
+<td style="text-align:left">以列表的形式显示目录下所有的文件和目录,ll显示更详细</td>
+</tr>
+<tr>
+<td style="text-align:center">mkdir</td>
+<td style="text-align:left">创建新目录</td>
+</tr>
+<tr>
+<td style="text-align:center">vi/vim</td>
+<td style="text-align:left">修改/创建文件</td>
+</tr>
+<tr>
+<td style="text-align:center">kill</td>
+<td style="text-align:left">杀掉进程。比如:输入jps:显示当前所有java进程pid的命令,kill +进程号即可杀掉进程</td>
+</tr>
+<tr>
+<td style="text-align:center">ssh</td>
+<td style="text-align:left">实现远程登录服务器</td>
+</tr>
+<tr>
+<td style="text-align:center">pbcopy/pbpaste</td>
+<td style="text-align:left">pbcopy: 可将信息copy到剪切板中<br>pbpaste:将剪切板中的内容paste到当前使用环境。<br>常见的：pbcopy &lt; ~/.ssh/id_rsa.pub</td>
+</tr>
+<tr>
+<td style="text-align:center">其他</td>
+<td style="text-align:left">ping、ifconfig等等此处就不赘述了</td>
+</tr>
+</tbody>
+</table>
+<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/crontab.html" target="_blank" rel="noopener">crontab</a></td>
+<td style="text-align:left">用来提交和管理用户的需要周期性执行的任务。通过contab命令，我们可以在固定的间隔时间执行指定的系统指令或 shell script脚本。时间间隔的单位可以是分钟、小时、日、月、周及以上的任意组合。这个命令非常适合周期性的日志分析或数据备份等工作。</td>
+</tr>
+<tr>
+<td style="text-align:center">nohup</td>
+<td style="text-align:left">将程序以忽略挂起信号的方式运行起来，被运行的程序的输出信息将不会显示到终端。<br>“nohup 程序名 &amp;”使原程序的的标准输出被自动改向到当前目录下的nohup.out文件，起到了log的作用</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://man.linuxde.net/screen" target="_blank" rel="noopener">screen</a>/<a href="https://gist.github.com/ryerh/14b7c24dfd623ef8edc7" target="_blank" rel="noopener">tmux</a></td>
+<td style="text-align:left">终端复用命令行工具。<br>使用telnet或SSH远程登录linux时，如果连接非正常中断，重新连接时，系统将开一个新的session，无法恢复原来的session。screen/tmux命令可以解决这个问题。在本质上，意味着你能够使用一个单一的终端窗口运行多终端的应用。<br>screen/screen -ls<br>tmux:开启tmux;tmux ls:显示已有tmux列表。也可通过~/.tmux.conf配置自己的快捷键</td>
+</tr>
+<tr>
+<td style="text-align:center">history</td>
+<td style="text-align:left">用于显示指定数目的指令命令，读取历史命令文件中的目录到历史命令缓冲区和将历史命令缓冲区中的目录写入命令文件。<br>可通过结合grep/tail等一起使用，快速执行已被记录过的命令</td>
+</tr>
+<tr>
+<td style="text-align:center">alias</td>
+<td style="text-align:left">用来设置指令的别名。使用alias可以封装好多日常经常用到的命令，能最大限度的较少输入字符。比如git的一些常用命令,可根据个人习惯设置：<br>alias g=”git”<br>alias gst=”git status”<br>alias ga=”git add”<br>alias gp=”git push”<br>alias gc=”git commit -v”等等</td>
+</tr>
+<tr>
+<td style="text-align:center">autojump</td>
+<td style="text-align:left">能帮助你更快的切换目录，它允许你可以直接跳转到常用的文件目录下，而不受当前所在目录的限制。<br>例如:曾经访问过~/Downloads目录，无论当前你在哪个目录下，输入“j do”(可以无需输全)即可跳转至download目录下</td>
+</tr>
+</tbody>
+</table>
+<h3 id="最后再来简单聊聊shell脚本"><a href="#最后再来简单聊聊shell脚本" class="headerlink" title="最后再来简单聊聊shell脚本"></a>最后再来简单聊聊shell脚本</h3><p>Shell有两种执行命令的方式：</p>
+<ul>
+<li><p>交互式（Interactive）：解释执行用户的命令，用户输入一条命令，Shell就解释执行一条。</p>
+</li>
+<li><p>批处理（Batch）：用户事先写一个Shell脚本(Script)，其中有很多条命令，让Shell一次把这些命令执行完，而不必一条一条地敲命令。</p>
+</li>
+</ul>
+<p>shell脚本可以简单的理解为一连串的Linux Command Line的组合。按照某种特定的逻辑，把上述提到的命令行组合起来，就是一个具有某种特定功能的脚本。<br>比如以下几个例子：</p>
+<p><strong>举例1.用expect写自动登录到指定服务器的脚本</strong></p>
+<p>为解决每天要执行很多次【ssh xxx@xxxxxx】指令登录虚拟机，可以编写login.sh脚本内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/expect</span><br><span class="line">spawn ssh xxx@xxxxxx</span><br><span class="line">expect &quot;*password:&quot;</span><br><span class="line">send  &quot;密码\r&quot;</span><br><span class="line">interact</span><br></pre></td></tr></table></figure>
+<p>再将【./login.sh】配置别名alias，或移动到可执行目录中，即可实现【login】一键登录；</p>
+<p>对于login.sh的执行过程为：【spawn】启动一个新进程执行ssh登录指令，【expect】监听到标准输入的提示信息『xxx@xxxxxx’s password』符合匹配规则，触发【send】发送密码代替手动输入，完成登录，【interact】用户参与交互，此时已登录上了虚拟机。</p>
+<p>expect是一个处理交互的指令，通过expect我们可以把交互过程写到Shell脚本里以实现一些自动化操作。expect有四个核心的指令：</p>
+<ul>
+<li>spawn：启动新进程，后跟新进程要执行的指令；</li>
+<li>expect：指定要监听的字符串，如果spawn进程返回了匹配的字符串（如标准输入的提示信息），则触发send；</li>
+<li>send：发送指定的字符串到spawn进程，代替标准输入；</li>
+<li>interact：用户参与交互；</li>
+</ul>
+<p><strong>举例2. 启动服务脚本</strong></p>
+<p>此处以一个jetty服务的启动为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">port=&quot;8080&quot;   #定义变量，最后一行用到</span><br><span class="line">mvnexe=&quot;mvn&quot;   #定义变量，最后一行用到</span><br><span class="line"></span><br><span class="line">while getopts &quot;p:P:t:d&quot; arg   #循环从命令行中获取输入的参数</span><br><span class="line">do</span><br><span class="line">        case $arg in   #case in相当于java里的switch case控制流程</span><br><span class="line">            p)    #若参数输入-p 80,代表修改启动端口为80</span><br><span class="line">                port=&quot;$OPTARG&quot;</span><br><span class="line">                ;;</span><br><span class="line">            d)    #若命令行中带-d,代表以debug方式启动并且跳过测试</span><br><span class="line">                mvnexe=&quot;mvnDebug -Dmaven.test.skip=true&quot;</span><br><span class="line">                ;;</span><br><span class="line">            ?)    #若是其他参数，则输出未知参数</span><br><span class="line">            echo &quot;unkonw argument&quot;</span><br><span class="line">        exit 1   # 退出循环</span><br><span class="line">        ;;</span><br><span class="line">        esac    #是反写的case，与前面的case类似一对括号()，表示流程结束</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">mvn clean    #执行mvn clean操作</span><br><span class="line">$mvnexe -U jetty:run-exploded -Djetty.port=$port -Dmaven.test.skip=true   #执行启动操作，$mvnexe和$port是前面定义的变量</span><br></pre></td></tr></table></figure>
+<p>类似的，启动java项目步骤一般为：(git拉取分支上的最新代码–&gt;)mvn package进行打包–&gt;java -jar 启动应用。也可通过编写shell脚本来启动，有兴趣小伙伴可以自己研究一下~</p>
+<p><strong>举例3. 发布blog</strong></p>
+<p>与上面例子类似的，比如自己在githubpage上发布blog的时候，通常需要输入系列固定的命令，此时就可以将此过程的命令都存在update_blog.sh文件中，每次新增时仅需要将文件放至对应的文件夹，运行该.sh文件即可完成整个的发布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo  generate</span><br><span class="line">cp -R public/* .deploy/*.github.io</span><br><span class="line">cd .deploy/*.github.io</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>到这里要说的内容就已经基本结束啦~</p>
+<p>以上举例了一些常用到linux命令行及shell脚本的场景，还有很多很多的应用场景待大家在工作中来挖掘&amp;尝试。shell的基础此处没有详细介绍，若有兴趣可以戳<a href="https://github.com/qinjx/30min_guides/blob/master/shell.md" target="_blank" rel="noopener">shell</a>来查看。</p>
+<p>不足之处，欢迎进行补充和反馈~</p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2018/09/17/linux command line&shell脚本在测试工作中的实践小结/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"sixisme"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+  
+<section class="post-comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM0OC81OTE2">
+        <script type="text/javascript">
+           (function(d, s) {
+                      var j, e = d.getElementsByTagName(s)[0];
+                             if (typeof LivereTower === 'function') { return; }
+                                    j = d.createElement(s);
+                                           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                                                  j.async = true;
+                                                         e.parentNode.insertBefore(j, e);
+                                                            })(document, 'script');
+                                                                </script>
+                                                                </div>
+                                                                </section>
+                                                                
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
