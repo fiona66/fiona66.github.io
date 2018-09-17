@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/09/17/linux command line&shell脚本在测试工作中的实践小结/index.html">
 <meta property="og:site_name" content="进击的六六">
 <meta property="og:description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下：  场景一：搭建环境 根据每个公司的情况，软件">
-<meta property="og:updated_time" content="2018-09-17T13:21:29.000Z">
+<meta property="og:updated_time" content="2018-09-17T13:23:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command Line &amp; shell脚本在测试工作中的实践小结 | 进击的六六">
 <meta name="twitter:description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下：  场景一：搭建环境 根据每个公司的情况，软件">
@@ -250,8 +250,43 @@ classes that you can use:
 </tr>
 </tbody>
 </table>
-<p><strong> 场景三：监控&amp;排查问题 </strong><br>|命令  | 备注 |<br>| :–: | :– |<br>|top | 用于实时显示 process 的动态|<br>|uptime|能够打印当前时间、系统运行了多久时间、当前登录的用户有多少，以及前 1、5 和 15 分钟系统的平均负载。 |<br>|ps -ef|ps:将某个进程显示出来,-e 显示所有进程,-f 全格式.<br>显示结果：用户ID/进程ID/父进程ID/CPU占用率/开始时间/开始此进程的终端设备/此进程运行的总时间/命令名 |<br>|telnet|查看某个ip端口是否正常开启，用法：telnet ip port。例如 telnet 10.1.1.1 80 |<br>|<a href="http://man.linuxde.net/curl" target="_blank" rel="noopener">curl</a>|查看api的返回情况,命令行版的postman。甚至更强大|<br>|lsof|用于查看你进程开打的文件，打开文件的进程，进程打开的端口(TCP、UDP)。<br>例如:常见用法”lsof -i:port”，查看该端口是否被占用|</p>
-<p><strong> 场景四：文件操作 </strong><br>文在Linux中，一切（几乎一切）都是文件。所以若是需要在Linux系统中对文件做操作，需要熟练掌握如下一些命令：</p>
+<p><strong> 场景三：监控&amp;排查问题 </strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">top</td>
+<td style="text-align:left">用于实时显示 process 的动态</td>
+</tr>
+<tr>
+<td style="text-align:center">uptime</td>
+<td style="text-align:left">能够打印当前时间、系统运行了多久时间、当前登录的用户有多少，以及前 1、5 和 15 分钟系统的平均负载。</td>
+</tr>
+<tr>
+<td style="text-align:center">ps -ef</td>
+<td style="text-align:left">ps:将某个进程显示出来,-e 显示所有进程,-f 全格式.<br>显示结果：用户ID/进程ID/父进程ID/CPU占用率/开始时间/开始此进程的终端设备/此进程运行的总时间/命令名</td>
+</tr>
+<tr>
+<td style="text-align:center">telnet</td>
+<td style="text-align:left">查看某个ip端口是否正常开启，用法：telnet ip port。例如 telnet 10.1.1.1 80</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://man.linuxde.net/curl" target="_blank" rel="noopener">curl</a></td>
+<td style="text-align:left">查看api的返回情况,命令行版的postman。甚至更强大</td>
+</tr>
+<tr>
+<td style="text-align:center">lsof</td>
+<td style="text-align:left">用于查看你进程开打的文件，打开文件的进程，进程打开的端口(TCP、UDP)。<br>例如:常见用法”lsof -i:port”，查看该端口是否被占用</td>
+</tr>
+</tbody>
+</table>
+<p><strong> 场景四：文件操作 </strong></p>
+<p>文在Linux中，一切（几乎一切）都是文件。所以若是需要在Linux系统中对文件做操作，需要熟练掌握如下一些命令：</p>
 <table>
 <thead>
 <tr>
@@ -270,7 +305,8 @@ classes that you can use:
 </tr>
 </tbody>
 </table>
-<p><strong> 场景五：文本分析 </strong><br>linux还可以进行很强大的文本分析操作，通常可能见到的场景是：会对日志文件等其他做一些查找、提取、排序、替换等工作,就需要了解以下的一些命令：</p>
+<p><strong> 场景五：文本分析 </strong></p>
+<p>linux还可以进行很强大的文本分析操作，通常可能见到的场景是：会对日志文件等其他做一些查找、提取、排序、替换等工作,就需要了解以下的一些命令：</p>
 <table>
 <thead>
 <tr>
