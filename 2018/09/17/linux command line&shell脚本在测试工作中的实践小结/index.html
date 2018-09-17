@@ -16,16 +16,16 @@
     
     
 
-    <meta name="description" content="Linux Command Line &amp;amp; shell脚本在测试工作中的实践小结背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很">
+    <meta name="description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下： 场景一：搭建环境根据每个公司的情况，软件测试人">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Command Line &amp; shell脚本在测试工作中的实践小结 | 进击的六六">
 <meta property="og:url" content="http://yoursite.com/2018/09/17/linux command line&shell脚本在测试工作中的实践小结/index.html">
 <meta property="og:site_name" content="进击的六六">
-<meta property="og:description" content="Linux Command Line &amp;amp; shell脚本在测试工作中的实践小结背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很">
-<meta property="og:updated_time" content="2018-09-17T13:14:04.000Z">
+<meta property="og:description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下： 场景一：搭建环境根据每个公司的情况，软件测试人">
+<meta property="og:updated_time" content="2018-09-17T13:16:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command Line &amp; shell脚本在测试工作中的实践小结 | 进击的六六">
-<meta name="twitter:description" content="Linux Command Line &amp;amp; shell脚本在测试工作中的实践小结背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很">
+<meta name="twitter:description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下： 场景一：搭建环境根据每个公司的情况，软件测试人">
     
     
     
@@ -170,7 +170,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="Linux-Command-Line-amp-shell脚本在测试工作中的实践小结"><a href="#Linux-Command-Line-amp-shell脚本在测试工作中的实践小结" class="headerlink" title="Linux Command Line &amp; shell脚本在测试工作中的实践小结"></a>Linux Command Line &amp; shell脚本在测试工作中的实践小结</h3><p>背景：</p>
+    <p>背景：</p>
 <p>相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。<br>测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下：</p>
 <h5 id="场景一：搭建环境"><a href="#场景一：搭建环境" class="headerlink" title="场景一：搭建环境"></a>场景一：搭建环境</h5><p>根据每个公司的情况，软件测试人员需要自己在Linux系统上部署测试环境，也有公司是开发人员帮忙在Linux服务器上部署，不需要测试人员自己部署。而且现在大部分开始做自动化部署了，就更不需要软件测试人员手工部署，直接在Jenkins上自动部署就完成了，然后打开web界面，新部署的代码就生效了。</p>
 <p>不过不管是手工部署，还是通过GUI工具去完成自动化部署，本质的过程其实都是通过一系列Linux Command Line去完成的。</p>
