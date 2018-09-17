@@ -16,16 +16,16 @@
     
     
 
-    <meta name="description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下： 场景一：搭建环境根据每个公司的情况，软件测试人">
+    <meta name="description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下：  场景一：搭建环境 根据每个公司的情况，软件测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Command Line &amp; shell脚本在测试工作中的实践小结 | 进击的六六">
 <meta property="og:url" content="http://yoursite.com/2018/09/17/linux command line&shell脚本在测试工作中的实践小结/index.html">
 <meta property="og:site_name" content="进击的六六">
-<meta property="og:description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下： 场景一：搭建环境根据每个公司的情况，软件测试人">
-<meta property="og:updated_time" content="2018-09-17T13:16:43.000Z">
+<meta property="og:description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下：  场景一：搭建环境 根据每个公司的情况，软件测">
+<meta property="og:updated_time" content="2018-09-17T13:19:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command Line &amp; shell脚本在测试工作中的实践小结 | 进击的六六">
-<meta name="twitter:description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下： 场景一：搭建环境根据每个公司的情况，软件测试人">
+<meta name="twitter:description" content="背景： 相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下：  场景一：搭建环境 根据每个公司的情况，软件测">
     
     
     
@@ -172,7 +172,7 @@ classes that you can use:
   <section id="post-content" class="article-content post">
     <p>背景：</p>
 <p>相信很多人都知道，之所以我们会用到Linux，是因为我们的产品将Linux系统作为我们的服务器使用，当我们去测试产品时需要在Linux上部署产品，若产品某个功能出现错误，我们需要去排查出错的原因，出于这些目的，我们就需要掌握一定的Linux命令。<br>测试工作中使用到linux命令行或shell脚本的场景还是很多的，下面我就根据不同场景来介绍一下：</p>
-<h5 id="场景一：搭建环境"><a href="#场景一：搭建环境" class="headerlink" title="场景一：搭建环境"></a>场景一：搭建环境</h5><p>根据每个公司的情况，软件测试人员需要自己在Linux系统上部署测试环境，也有公司是开发人员帮忙在Linux服务器上部署，不需要测试人员自己部署。而且现在大部分开始做自动化部署了，就更不需要软件测试人员手工部署，直接在Jenkins上自动部署就完成了，然后打开web界面，新部署的代码就生效了。</p>
+<p><strong> 场景一：搭建环境 </strong><br>根据每个公司的情况，软件测试人员需要自己在Linux系统上部署测试环境，也有公司是开发人员帮忙在Linux服务器上部署，不需要测试人员自己部署。而且现在大部分开始做自动化部署了，就更不需要软件测试人员手工部署，直接在Jenkins上自动部署就完成了，然后打开web界面，新部署的代码就生效了。</p>
 <p>不过不管是手工部署，还是通过GUI工具去完成自动化部署，本质的过程其实都是通过一系列Linux Command Line去完成的。</p>
 <p>以下就列举一些在部署环境时需要用到的命令</p>
 <table>
@@ -222,7 +222,7 @@ classes that you can use:
 </tbody>
 </table>
 <p>基本在部署环境时，主要就会用到这些命令，可能还有其他的，根据实际情况需要做一些补充。</p>
-<h5 id="场景二：查看日志"><a href="#场景二：查看日志" class="headerlink" title="场景二：查看日志"></a>场景二：查看日志</h5><p>对于技术同学来说，查看日志相信一定不会陌生，定位bug，或者查看程序执行情况（什么时候调用哪个服务，什么时候在哪个表中写数据，什么时候发起请求等都可以在日志中查询到）。</p>
+<p><strong> 场景二：查看日志 </strong><br>对于技术同学来说，查看日志相信一定不会陌生，定位bug，或者查看程序执行情况（什么时候调用哪个服务，什么时候在哪个表中写数据，什么时候发起请求等都可以在日志中查询到）。</p>
 <p>下面就列举一些在查看日志时经常用到命令：</p>
 <table>
 <thead>
@@ -250,41 +250,8 @@ classes that you can use:
 </tr>
 </tbody>
 </table>
-<h5 id="场景三：监控-amp-排查问题"><a href="#场景三：监控-amp-排查问题" class="headerlink" title="场景三：监控&amp;排查问题"></a>场景三：监控&amp;排查问题</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">top</td>
-<td style="text-align:left">用于实时显示 process 的动态</td>
-</tr>
-<tr>
-<td style="text-align:center">uptime</td>
-<td style="text-align:left">能够打印当前时间、系统运行了多久时间、当前登录的用户有多少，以及前 1、5 和 15 分钟系统的平均负载。</td>
-</tr>
-<tr>
-<td style="text-align:center">ps -ef</td>
-<td style="text-align:left">ps:将某个进程显示出来,-e 显示所有进程,-f 全格式.<br>显示结果：用户ID/进程ID/父进程ID/CPU占用率/开始时间/开始此进程的终端设备/此进程运行的总时间/命令名</td>
-</tr>
-<tr>
-<td style="text-align:center">telnet</td>
-<td style="text-align:left">查看某个ip端口是否正常开启，用法：telnet ip port。例如 telnet 10.1.1.1 80</td>
-</tr>
-<tr>
-<td style="text-align:center"><a href="http://man.linuxde.net/curl" target="_blank" rel="noopener">curl</a></td>
-<td style="text-align:left">查看api的返回情况,命令行版的postman。甚至更强大</td>
-</tr>
-<tr>
-<td style="text-align:center">lsof</td>
-<td style="text-align:left">用于查看你进程开打的文件，打开文件的进程，进程打开的端口(TCP、UDP)。<br>例如:常见用法”lsof -i:port”，查看该端口是否被占用</td>
-</tr>
-</tbody>
-</table>
-<h5 id="场景四：文件操作"><a href="#场景四：文件操作" class="headerlink" title="场景四：文件操作"></a>场景四：文件操作</h5><p>文在Linux中，一切（几乎一切）都是文件。所以若是需要在Linux系统中对文件做操作，需要熟练掌握如下一些命令：</p>
+<p><strong> 场景三：监控&amp;排查问题 </strong><br>|命令  | 备注 |<br>| :–: | :– |<br>|top | 用于实时显示 process 的动态|<br>|uptime|能够打印当前时间、系统运行了多久时间、当前登录的用户有多少，以及前 1、5 和 15 分钟系统的平均负载。 |<br>|ps -ef|ps:将某个进程显示出来,-e 显示所有进程,-f 全格式.<br>显示结果：用户ID/进程ID/父进程ID/CPU占用率/开始时间/开始此进程的终端设备/此进程运行的总时间/命令名 |<br>|telnet|查看某个ip端口是否正常开启，用法：telnet ip port。例如 telnet 10.1.1.1 80 |<br>|<a href="http://man.linuxde.net/curl" target="_blank" rel="noopener">curl</a>|查看api的返回情况,命令行版的postman。甚至更强大|<br>|lsof|用于查看你进程开打的文件，打开文件的进程，进程打开的端口(TCP、UDP)。<br>例如:常见用法”lsof -i:port”，查看该端口是否被占用|</p>
+<p><strong> 场景四：文件操作 </strong><br>文在Linux中，一切（几乎一切）都是文件。所以若是需要在Linux系统中对文件做操作，需要熟练掌握如下一些命令：</p>
 <table>
 <thead>
 <tr>
@@ -303,7 +270,7 @@ classes that you can use:
 </tr>
 </tbody>
 </table>
-<h5 id="场景五：文本分析"><a href="#场景五：文本分析" class="headerlink" title="场景五：文本分析"></a>场景五：文本分析</h5><p>linux还可以进行很强大的文本分析操作，通常可能见到的场景是：会对日志文件等其他做一些查找、提取、排序、替换等工作,就需要了解以下的一些命令：</p>
+<p><strong> 场景五：文本分析 </strong><br>linux还可以进行很强大的文本分析操作，通常可能见到的场景是：会对日志文件等其他做一些查找、提取、排序、替换等工作,就需要了解以下的一些命令：</p>
 <table>
 <thead>
 <tr>
@@ -334,73 +301,9 @@ classes that you can use:
 </tr>
 </tbody>
 </table>
-<h5 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">命令</th>
-<th style="text-align:left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">git全系列</td>
-<td style="text-align:left">源码版本管理必备<br>git clone &lt;版本库的网址&gt;:从远程主机克隆一个版本库<br>git remote:用于管理主机名。<br>git fetch:将某个远程主机的更新，全部取回本地。<br>(git branch:查看分支。-r查看远程分支,-a查看所有分支<br>git checkout:切换分支。-b切换新分支。<br>git merge:合并分支)<br>git pull:取回远程主机某个分支的更新，再与本地的指定分支合并.” git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt; “<br>git push:用于将本地分支的更新，推送到远程主机.”git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;”<br><strong>注意，分支推送顺序的写法是&lt;来源地&gt;:&lt;目的地&gt;，所以git pull是&lt;远程分支&gt;:&lt;本地分支&gt;，而git push是&lt;本地分支&gt;:&lt;远程分支&gt;。</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">maven全系列</td>
-<td style="text-align:left">java软件项目管理工具。<br>mvn clean:清理，删除target目录下编译内容<br>mvn compile:编译项目<br>mvn package:打包发布<br>mvn package -Dmaven.test.skip=ture:打包时跳过测试</td>
-</tr>
-<tr>
-<td style="text-align:center">cd</td>
-<td style="text-align:left">切换目录，这个命令是肯定会用到的。<br>需要部署到哪个目录直接用cd+路径就切换到该目录下了.cd /:进入系统根目录. cd -: 切换回上次的目录</td>
-</tr>
-<tr>
-<td style="text-align:center">cp</td>
-<td style="text-align:left">用于复制文件或目录</td>
-</tr>
-<tr>
-<td style="text-align:center">mv</td>
-<td style="text-align:left">用来为文件或目录改名、或将文件或目录移入其它位置。</td>
-</tr>
-<tr>
-<td style="text-align:center">rm</td>
-<td style="text-align:left">删除命令，可以删除目录和文件。<br>固定用法:rm rf 目录名或文件名（可以跟多个）</td>
-</tr>
-<tr>
-<td style="text-align:center">tar</td>
-<td style="text-align:left">打包和解包命令，打包可以是文件也可以是目录 <br>解包:tar -xzvf 解包解压的文件名<br>打包:tar -czvf新文件名.tar.gz文件1 文件2….目录1 目录2</td>
-</tr>
-<tr>
-<td style="text-align:center">ll/ls</td>
-<td style="text-align:left">以列表的形式显示目录下所有的文件和目录,ll显示更详细</td>
-</tr>
-<tr>
-<td style="text-align:center">mkdir</td>
-<td style="text-align:left">创建新目录</td>
-</tr>
-<tr>
-<td style="text-align:center">vi/vim</td>
-<td style="text-align:left">修改/创建文件</td>
-</tr>
-<tr>
-<td style="text-align:center">kill</td>
-<td style="text-align:left">杀掉进程。比如:输入jps:显示当前所有java进程pid的命令,kill +进程号即可杀掉进程</td>
-</tr>
-<tr>
-<td style="text-align:center">ssh</td>
-<td style="text-align:left">实现远程登录服务器</td>
-</tr>
-<tr>
-<td style="text-align:center">pbcopy/pbpaste</td>
-<td style="text-align:left">pbcopy: 可将信息copy到剪切板中<br>pbpaste:将剪切板中的内容paste到当前使用环境。<br>常见的：pbcopy &lt; ~/.ssh/id_rsa.pub</td>
-</tr>
-<tr>
-<td style="text-align:center">其他</td>
-<td style="text-align:left">ping、ifconfig等等此处就不赘述了</td>
-</tr>
-</tbody>
-</table>
-<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><table>
+<p><strong> 基础命令 </strong><br>|命令  | 备注 |<br>| :–: | :– |<br>|git全系列 | 源码版本管理必备<br>git clone &lt;版本库的网址&gt;:从远程主机克隆一个版本库<br>git remote:用于管理主机名。<br>git fetch:将某个远程主机的更新，全部取回本地。<br>(git branch:查看分支。-r查看远程分支,-a查看所有分支<br>git checkout:切换分支。-b切换新分支。<br>git merge:合并分支)<br>git pull:取回远程主机某个分支的更新，再与本地的指定分支合并.” git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt; “<br>git push:用于将本地分支的更新，推送到远程主机.”git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;”<br><strong>注意，分支推送顺序的写法是&lt;来源地&gt;:&lt;目的地&gt;，所以git pull是&lt;远程分支&gt;:&lt;本地分支&gt;，而git push是&lt;本地分支&gt;:&lt;远程分支&gt;。</strong>|<br>|maven全系列 | java软件项目管理工具。<br>mvn clean:清理，删除target目录下编译内容<br>mvn compile:编译项目<br>mvn package:打包发布<br>mvn package -Dmaven.test.skip=ture:打包时跳过测试|<br>|cd |切换目录，这个命令是肯定会用到的。<br>需要部署到哪个目录直接用cd+路径就切换到该目录下了.cd /:进入系统根目录. cd -: 切换回上次的目录|<br>|cp |用于复制文件或目录|<br>|mv |用来为文件或目录改名、或将文件或目录移入其它位置。|<br>|rm |删除命令，可以删除目录和文件。<br>固定用法:rm rf 目录名或文件名（可以跟多个） |<br>|tar |打包和解包命令，打包可以是文件也可以是目录 <br>解包:tar -xzvf 解包解压的文件名<br>打包:tar -czvf新文件名.tar.gz文件1 文件2….目录1 目录2|<br>|ll/ls |以列表的形式显示目录下所有的文件和目录,ll显示更详细|<br>|mkdir |创建新目录|<br>|vi/vim|修改/创建文件|<br>|kill|杀掉进程。比如:输入jps:显示当前所有java进程pid的命令,kill +进程号即可杀掉进程|<br>|ssh |实现远程登录服务器|<br>|pbcopy/pbpaste|pbcopy: 可将信息copy到剪切板中<br>pbpaste:将剪切板中的内容paste到当前使用环境。<br>常见的：pbcopy &lt; ~/.ssh/id_rsa.pub|<br>|其他| ping、ifconfig等等此处就不赘述了|</p>
+<p><strong> 其他</strong></p>
+<table>
 <thead>
 <tr>
 <th style="text-align:center">命令</th>
@@ -434,7 +337,8 @@ classes that you can use:
 </tr>
 </tbody>
 </table>
-<h3 id="最后再来简单聊聊shell脚本"><a href="#最后再来简单聊聊shell脚本" class="headerlink" title="最后再来简单聊聊shell脚本"></a>最后再来简单聊聊shell脚本</h3><p>Shell有两种执行命令的方式：</p>
+<p><strong> 最后再来简单聊聊shell脚本 </strong></p>
+<p>Shell有两种执行命令的方式：</p>
 <ul>
 <li><p>交互式（Interactive）：解释执行用户的命令，用户输入一条命令，Shell就解释执行一条。</p>
 </li>
